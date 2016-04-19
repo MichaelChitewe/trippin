@@ -1,6 +1,5 @@
-var trippin = require('../trippin');
+var matching = require('../matching');
 var assert = require('assert');
-
 var capeTownTaxis = [{
   "RegistrationNumber": "CA 123 456",
   "Route": "Cape Town - Bellville",
@@ -76,25 +75,48 @@ var durbanTaxis = [{
 }];
 
 
-describe("should give total number of trips by all Cape Town taxis", function() {
-
-  it("should return all Cape Town trips by the taxis", function() {
-
-    var allTrips = 54;
-    var result = trippin(capeTownTaxis);
-    assert.equal(result, allTrips);
-  });
-
-})
-
-describe("should give total number of trips by all Durban taxis",
+describe(
+  "should find all the objects matching a specific condition of taxi CA 123 456 ",
   function() {
 
-    it("should return all Durban trips by the taxis", function() {
+    var regList = [{
+      "RegistrationNumber": "CA 123 456",
+      "Route": "Cape Town - Bellville",
+      "Fare": 13,
+      "Trips": 9
+    }, {
+      "RegistrationNumber": "CA 123 456",
+      "Route": "Cape Town - Gugulethu",
+      "Fare": 12,
+      "Trips": 11
+    }];
 
-      var allTrips = 117;
-      var result = trippin(durbanTaxis);
-      assert.equal(result, allTrips);
+    it("should return filter records of taxi CA 123 456", function() {
+
+      var result = matching(capeTownTaxis, 'CA 123 456');
+      assert.deepEqual(result, regList);
     });
+  })
 
+describe(
+  "should find all the objects matching a specific condition of taxi ND 123 456 ",
+  function() {
+
+    it("should return filter records of taxi ND 123 456", function() {
+
+      var regList = [{
+        "RegistrationNumber": "ND 123 456",
+        "Route": "Durban - University of KZN",
+        "Fare": 7,
+        "Trips": 14
+      }, {
+        "RegistrationNumber": "ND 123 456",
+        "Route": "Durban - Umbilo",
+        "Fare": 8,
+        "Trips": 15
+      }, ];
+
+      var result = matching(durbanTaxis, 'ND 123 456');
+      assert.deepEqual(result, regList);
+    });
   })

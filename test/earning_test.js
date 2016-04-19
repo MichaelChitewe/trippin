@@ -1,6 +1,5 @@
-var trippin = require('../trippin');
+var earnings = require('../earnings');
 var assert = require('assert');
-
 var capeTownTaxis = [{
   "RegistrationNumber": "CA 123 456",
   "Route": "Cape Town - Bellville",
@@ -76,25 +75,26 @@ var durbanTaxis = [{
 }];
 
 
-describe("should give total number of trips by all Cape Town taxis", function() {
+describe("should give the total earnings of taxi CA 234 567", function() {
 
-  it("should return all Cape Town trips by the taxis", function() {
+  it("should return total earnings of taxi CA 234 567",
+    function() {
 
-    var allTrips = 54;
-    var result = trippin(capeTownTaxis);
-    assert.equal(result, allTrips);
-  });
-
+      var zip = 12;
+      var tip = 'CA 234 567';
+      var result = earnings(capeTownTaxis, tip);
+      assert.equal(result, zip)
+    });
 })
 
-describe("should give total number of trips by all Durban taxis",
-  function() {
+describe("should give the total earnings of taxi ND 234 567", function() {
 
-    it("should return all Durban trips by the taxis", function() {
+  it("should return total earnings of taxi ND 234 567",
+    function() {
 
-      var allTrips = 117;
-      var result = trippin(durbanTaxis);
-      assert.equal(result, allTrips);
+      var zip = 43;
+      var tip = 'ND 234 567';
+      var result = earnings(durbanTaxis, tip);
+      assert.equal(result, zip)
     });
-
-  })
+})

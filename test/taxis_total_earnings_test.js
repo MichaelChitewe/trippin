@@ -1,4 +1,4 @@
-var trippin = require('../trippin');
+var taxis_total_earnings = require('../taxis_total_earnings');
 var assert = require('assert');
 
 var capeTownTaxis = [{
@@ -76,25 +76,22 @@ var durbanTaxis = [{
 }];
 
 
-describe("should give total number of trips by all Cape Town taxis", function() {
+describe("should give total earnings of all Cape Town taxis", function() {
 
-  it("should return all Cape Town trips by the taxis", function() {
+  it("should return total earnings of all Cape Town taxis", function() {
 
-    var allTrips = 54;
-    var result = trippin(capeTownTaxis);
-    assert.equal(result, allTrips);
+    var result = taxis_total_earnings(capeTownTaxis);
+    assert.deepEqual(result, allEarnings);
   });
 
 })
 
-describe("should give total number of trips by all Durban taxis",
-  function() {
+describe("should give total earnings of all Durban taxis", function() {
 
-    it("should return all Durban trips by the taxis", function() {
+  it("should return total earnings of all Durban taxis", function() {
 
-      var allTrips = 117;
-      var result = trippin(durbanTaxis);
-      assert.equal(result, allTrips);
-    });
+    var result = taxis_total_earnings(durbanTaxis);
+    assert.deepEqual(result, allEarnings);
+  });
 
-  })
+})

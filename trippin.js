@@ -6,6 +6,6 @@ module.exports = function(totalList) {
     total += yolo.Trips;
 
   })
-
+  console.log(total);
   return total;
 }

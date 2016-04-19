@@ -1,4 +1,4 @@
-var trippin = require('../trippin');
+var minimum = require('../minimum');
 var assert = require('assert');
 
 var capeTownTaxis = [{
@@ -76,25 +76,18 @@ var durbanTaxis = [{
 }];
 
 
-describe("should give total number of trips by all Cape Town taxis", function() {
+describe("should give minimum number of trips by Cape Town taxis", function() {
 
-  it("should return all Cape Town trips by the taxis", function() {
-
-    var allTrips = 54;
-    var result = trippin(capeTownTaxis);
-    assert.equal(result, allTrips);
+it("should return the minimum Cape Town trip by the taxis",function() {
+    var result = minimum(capeTownTaxis);
+    assert.equal(result, 9)
   });
-
 })
 
-describe("should give total number of trips by all Durban taxis",
-  function() {
+describe("should minimum number of trips by Durban taxis", function() {
 
-    it("should return all Durban trips by the taxis", function() {
-
-      var allTrips = 117;
-      var result = trippin(durbanTaxis);
-      assert.equal(result, allTrips);
-    });
-
-  })
+it("should return the minimum Durban trip by the taxis", function() {
+  var result = minimum(durbanTaxis);
+  assert.equal(result, 9)
+  });
+})

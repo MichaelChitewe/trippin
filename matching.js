@@ -19,7 +19,6 @@ module.exports = function(vans, regNumber) {
 
   //third solution(works)
 
-
   var cars = [];
 
   vans.forEach(function(k) {

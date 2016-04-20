@@ -81,7 +81,11 @@ describe("should give total earnings of all Cape Town taxis", function() {
   it("should return total earnings of all Cape Town taxis", function() {
 
     var result = taxis_total_earnings(capeTownTaxis);
-    assert.deepEqual(result, allEarnings);
+    assert.deepEqual(result, {
+      "CA 123 456": 249,
+      "CA 234 567": 132,
+      "CA 345 678": 234
+    });
   });
 
 })
@@ -91,7 +95,11 @@ describe("should give total earnings of all Durban taxis", function() {
   it("should return total earnings of all Durban taxis", function() {
 
     var result = taxis_total_earnings(durbanTaxis);
-    assert.deepEqual(result, allEarnings);
+    assert.deepEqual(result, {
+      "ND 123 456": 218,
+      "ND 234 567": 387,
+      "ND 345 678": 518
+    });
   });
 
 })

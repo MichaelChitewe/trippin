@@ -80,7 +80,7 @@ describe("should give the total earnings of taxi CA 234 567", function() {
   it("should return total earnings of taxi CA 234 567",
     function() {
 
-      var zip = 12;
+      var zip = 132;
       var tip = 'CA 234 567';
       var result = earnings(capeTownTaxis, tip);
       assert.equal(result, zip)
@@ -92,7 +92,7 @@ describe("should give the total earnings of taxi ND 234 567", function() {
   it("should return total earnings of taxi ND 234 567",
     function() {
 
-      var zip = 43;
+      var zip = 387;
       var tip = 'ND 234 567';
       var result = earnings(durbanTaxis, tip);
       assert.equal(result, zip)

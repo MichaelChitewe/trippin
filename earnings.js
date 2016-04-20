@@ -4,7 +4,7 @@ module.exports = function(n, earn) {
 
   n.forEach(function(j) {
     if (j.RegistrationNumber === earn) {
-      all += j.Fare;
+      all += j.Fare * j.Trips;
     }
 
   })
